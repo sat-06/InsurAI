@@ -4,7 +4,6 @@ An AI-powered InsurTech platform that predicts medical insurance charges, assess
 
 ---
 
-
 ## 🚀 Overview
 
 Traditional insurance premium estimation often lacks transparency and personalization. InsurAI leverages machine learning to provide accurate insurance charge predictions while helping both customers and insurers make data-driven decisions.
