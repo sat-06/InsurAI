@@ -5,10 +5,10 @@ from fastapi import APIRouter
 router = APIRouter()
 
 # Load trained model
-model = joblib.load("backend/models/insurance_model.pkl")
+model = joblib.load("ml/saved_models/insurance_model.pkl")
 
 # Load feature order
-feature_names = joblib.load("backend/models/feature_names.pkl")
+feature_names = joblib.load("ml/saved_models/feature_names.pkl")
 
 
 @router.post("/predict")
