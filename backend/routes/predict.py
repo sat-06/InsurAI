@@ -32,6 +32,27 @@ def predict(data: dict):
     "bmi_category_Overweight": 0,
     "bmi_category_Obese": 0
 }])
+    
+        # Region Encoding
+    if data["region"].lower() == "northwest":
+        input_data["region_northwest"] = 1
+
+    elif data["region"].lower() == "southeast":
+        input_data["region_southeast"] = 1
+
+    elif data["region"].lower() == "southwest":
+        input_data["region_southwest"] = 1
+
+
+    # BMI Category Encoding
+    if data["bmi"] < 25:
+        input_data["bmi_category_Normal"] = 1
+
+    elif data["bmi"] < 30:
+        input_data["bmi_category_Overweight"] = 1
+
+    else:
+        input_data["bmi_category_Obese"] = 1
 
     # Ensure correct column order
     input_data = input_data[feature_names]
