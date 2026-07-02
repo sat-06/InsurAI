@@ -18,12 +18,20 @@ def predict(data: dict):
     smoker = 1 if data["smoker"].lower() == "yes" else 0
 
     input_data = pd.DataFrame([{
-        "age": data["age"],
-        "sex": sex,
-        "bmi": data["bmi"],
-        "children": data["children"],
-        "smoker": smoker
-    }])
+    "age": data["age"],
+    "sex": sex,
+    "bmi": data["bmi"],
+    "children": data["children"],
+    "smoker": smoker,
+
+    "region_northwest": 0,
+    "region_southeast": 0,
+    "region_southwest": 0,
+
+    "bmi_category_Normal": 0,
+    "bmi_category_Overweight": 0,
+    "bmi_category_Obese": 0
+}])
 
     # Ensure correct column order
     input_data = input_data[feature_names]
