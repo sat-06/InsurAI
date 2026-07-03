@@ -1,106 +1,36 @@
-// ============================================================
-// InsurAI — Shared TypeScript Types
-// ============================================================
-
-export type Sex = "male" | "female";
-export type SmokerStatus = "yes" | "no";
-
-// ---------- Form input (what the user fills in) ----------
-export interface PredictionFormInput {
+export interface PredictionFormData {
   age: number;
-  sex: Sex;
+  sex: "male" | "female";
   bmi: number;
   children: number;
-  smoker: SmokerStatus;
+  smoker: "yes" | "no";
 }
 
-// ---------- POST /predict ----------
-export interface PredictRequest {
-  age: number;
-  sex: Sex;
-  bmi: number;
-  children: number;
-  smoker: SmokerStatus;
-}
-
-export interface PredictResponse {
+export interface PredictionResponse {
   predicted_charges: number;
 }
-
-// ---------- POST /risk-score ----------
-export interface RiskScoreRequest {
-  age: number;
-  bmi: number;
-  smoker: SmokerStatus;
-  children: number;
-}
-
-export type RiskCategory = "Low Risk" | "Moderate Risk" | "High Risk" | string;
 
 export interface RiskScoreResponse {
   risk_score: number;
-  category: RiskCategory;
-}
-
-// ---------- POST /segment ----------
-export interface SegmentRequest {
-  age: number;
-  bmi: number;
-  children: number;
-  predicted_charges: number;
+  risk_category: string;
 }
 
 export interface SegmentResponse {
+  cluster: number;
   segment: string;
-}
-
-// ---------- POST /underwriting ----------
-export interface UnderwritingRequest {
-  risk_score: number;
-  predicted_charges: number;
-  claim_probability: number;
 }
 
 export interface UnderwritingResponse {
+  risk_level: string;
   recommendation: string;
 }
 
-// ---------- Aggregated dashboard result ----------
-export interface DashboardResult {
-  input: PredictionFormInput;
+export interface CompletePredictionResult {
   predicted_charges: number;
   risk_score: number;
-  risk_category: RiskCategory;
+  risk_category: string;
+  cluster: number;
   segment: string;
-  claim_probability: number;
+  risk_level: string;
   recommendation: string;
-  timestamp: string;
-}
-
-// ---------- Prediction history (dummy for now) ----------
-export interface PredictionHistoryItem {
-  id: string;
-  date: string;
-  age: number;
-  sex: Sex;
-  smoker: SmokerStatus;
-  predicted_charges: number;
-  risk_category: RiskCategory;
-  segment: string;
-}
-
-// ---------- Async / API state ----------
-export type ApiStatus = "idle" | "loading" | "success" | "error";
-
-export interface StepStatus {
-  predict: ApiStatus;
-  riskScore: ApiStatus;
-  segment: ApiStatus;
-  underwriting: ApiStatus;
-}
-
-export interface ApiErrorShape {
-  message: string;
-  status?: number;
-  isNetworkError?: boolean;
 }

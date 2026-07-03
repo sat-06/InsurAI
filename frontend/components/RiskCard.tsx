@@ -14,7 +14,7 @@ const RADIUS = 54;
 const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
 
 function categoryTone(category: string) {
-  const lower = category.toLowerCase();
+  const lower = (category ?? "Unknown Risk").toLowerCase();
   if (lower.includes("low")) {
     return { text: "text-accent", stroke: "#22C55E", bg: "bg-accent/10" };
   }
