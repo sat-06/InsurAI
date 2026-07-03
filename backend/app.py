@@ -1,3 +1,4 @@
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi import FastAPI
 
 from backend.routes.predict import router as predict_router
@@ -9,6 +10,17 @@ app = FastAPI(
     title="InsurAI API",
     version="1.0.0",
     description="AI Powered Health Insurance Analytics Platform"
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:3000",
+        "http://127.0.0.1:3000"
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 app.include_router(predict_router)
