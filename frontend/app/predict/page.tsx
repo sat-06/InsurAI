@@ -13,7 +13,7 @@ import PredictionForm from "@/components/PredictionForm";
 import PredictionCard from "@/components/PredictionCard";
 import RiskCard from "@/components/RiskCard";
 import SegmentCard from "@/components/SegmentCard";
-import UnderwritingCard from "@/components/UnderwritingCard";
+import { UnderwritingCard } from "@/components/UnderwritingCard";
 import ErrorToast, {
   NetworkErrorCard,
 } from "@/components/ErrorToast";
