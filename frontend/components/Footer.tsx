@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ActivitySquare, Github, Linkedin, Twitter } from "lucide-react";
+import { ActivitySquare } from "lucide-react";
 
 const FOOTER_LINKS = {
   Product: [
@@ -8,8 +8,8 @@ const FOOTER_LINKS = {
     { label: "How it works", href: "/#ml" },
   ],
   Resources: [
-    { label: "API Docs", href: "#" },
-    { label: "GitHub", href: "https://github.com" },
+    { label: "API Docs", href: "https://insurai-api.onrender.com/docs" },
+    { label: "GitHub", href: "https://github.com/sat-06/InsurAI" },
     { label: "Changelog", href: "#" },
   ],
   Company: [
@@ -29,31 +29,24 @@ export default function Footer() {
               <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-primary">
                 <ActivitySquare className="h-4 w-4 text-white" />
               </div>
+
               <span className="text-base font-semibold text-white">
                 Insur<span className="text-gradient">AI</span>
               </span>
             </Link>
+
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-zinc-500">
               AI-powered health insurance analytics — prediction, risk
               scoring, segmentation, and underwriting in one platform.
             </p>
-            <div className="mt-5 flex items-center gap-3">
-              {[Github, Twitter, Linkedin].map((Icon, i) => (
-                <a
-                  key={i}
-                  href="#"
-                  className="flex h-9 w-9 items-center justify-center rounded-lg border border-border text-zinc-500 transition-colors hover:border-primary/40 hover:text-white"
-                  aria-label="Social link"
-                >
-                  <Icon className="h-4 w-4" />
-                </a>
-              ))}
-            </div>
           </div>
 
           {Object.entries(FOOTER_LINKS).map(([heading, links]) => (
             <div key={heading}>
-              <h4 className="text-sm font-semibold text-zinc-200">{heading}</h4>
+              <h4 className="text-sm font-semibold text-zinc-200">
+                {heading}
+              </h4>
+
               <ul className="mt-4 space-y-3">
                 {links.map((link) => (
                   <li key={link.label}>
@@ -71,8 +64,13 @@ export default function Footer() {
         </div>
 
         <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-border/60 pt-8 text-xs text-zinc-600 sm:flex-row">
-          <p>© {new Date().getFullYear()} InsurAI. All rights reserved.</p>
-          <p>Built with Next.js, FastAPI &amp; Scikit-Learn</p>
+          <p>
+            © {new Date().getFullYear()} InsurAI. All rights reserved.
+          </p>
+
+          <p>
+            Built with Next.js, FastAPI &amp; Scikit-Learn
+          </p>
         </div>
       </div>
     </footer>
