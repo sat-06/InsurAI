@@ -4,6 +4,7 @@ InsurAI is an end-to-end Machine Learning powered health insurance analytics pla
 
 The project integrates a trained Machine Learning model with a FastAPI backend and a modern Next.js frontend to provide real-time insurance analytics through an interactive dashboard.
 
+
 ---
 
 ## 🚀 Overview
